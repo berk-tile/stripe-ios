@@ -645,14 +645,14 @@ extension STPAPIClient {
         var parameters: [String: Any] = [:]
 
         if publishableKeyIsUserKey {
-            assert(
-                secret.hasPrefix("pi_"),
-                "`secret` format does not match expected identifer formatting.")
+//            assert(
+//                secret.hasPrefix("pi_"),
+//                "`secret` format does not match expected identifer formatting.")
             endpoint = "\(APIEndpointPaymentIntents)/\(secret)"
         } else {
-            assert(
-                STPPaymentIntentParams.isClientSecretValid(secret),
-                "`secret` format does not match expected client secret formatting.")
+//            assert(
+//                STPPaymentIntentParams.isClientSecretValid(secret),
+//                "`secret` format does not match expected client secret formatting.")
             let identifier = STPPaymentIntent.id(fromClientSecret: secret) ?? ""
             endpoint = "\(APIEndpointPaymentIntents)/\(identifier)"
             parameters["client_secret"] = secret
